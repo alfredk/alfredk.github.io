@@ -1,0 +1,42 @@
+
+@import "normalize";
+
+:root {
+  --dark: #333333;
+  --light-blue: #51c1d5;
+  --secondary-dark: #363948;
+
+  --slot3: #db961e;
+  --slot4: #9068fb;
+  --slot5: #3800e7;
+}
+body {
+  background-image: linear-gradient(230deg,var(--light-blue) ,var(--secondary-dark) 50%);
+  color: white;
+  @media (prefers-color-scheme: light) {
+    color: var(--dark);
+    background-image: linear-gradient(230deg,var(--light-blue) ,white 50%);
+  }
+}
+h1 {
+    background-image: linear-gradient( 70deg ,var(--slot3) 35%,var(--slot4) 70%,var(--slot5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    -webkit-line-clamp: 7;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    width: fit-content;
+}
+header { }
+
+main {
+
+  -o-border-image: linear-gradient(to bottom right, #ff0 0%, #65ca76 30%, #009ead 66%, #4cdae8 100%, #4cdae8);
+  border-image: linear-gradient(to bottom right, #ff0 0%, #65ca76 30%, #009ead 66%, #4cdae8 100%, #4cdae8);
+  border-style: solid;
+  border-image-slice: 1;
+}
+
+footer {}
