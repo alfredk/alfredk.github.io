@@ -11,6 +11,12 @@
   --slot5: #3800e7;
 }
 body {
+  overflow-x: hidden;
+  width: 100vw;
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: helvetica,arial,sans-serif;
+  line-height: 1.4;
   background-image: linear-gradient(230deg,var(--light-blue) ,var(--secondary-dark) 50%);
   color: white;
   @media (prefers-color-scheme: light) {
