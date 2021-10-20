@@ -13,21 +13,23 @@ module.exports = () => {
   const distPath = themePath + '/';
   const config = {
     entry: {
-      main: themePath + 'index.js',
+      main: themePath + "index.js",
     },
-    output: { // Built files go here
-      filename: 'app.js',
+    output: {
+      // Built files go here
+      filename: "app.js",
       path: distPath,
-      publicPath: '',
+      publicPath: "",
     },
-    module: { // All the rules that will be applied to your files.
+    module: {
+      // All the rules that will be applied to your files.
       rules: [
         {
           // Handle Javascript
           test: /\.js$/,
           include: themePath,
           use: {
-            loader: 'babel-loader',
+            loader: "babel-loader",
           },
         },
         {
@@ -38,15 +40,15 @@ module.exports = () => {
               // Use data-URI for small images.
               // This falls back to (and therefore accepts options for)
               // file-loader.
-              loader: 'url-loader',
+              loader: "url-loader",
               options: {
                 limit: 4 * 1024, // 4kB limit
-                name: '[name].[ext]',
-                outputPath: 'images',
+                name: "[name].[ext]",
+                outputPath: "images",
               },
             },
             {
-              loader: 'img-loader',
+              loader: "img-loader",
               options: {
                 enabled: false, // Optimize only in production/stage mode (it's slow)
                 svgo: {
@@ -57,7 +59,7 @@ module.exports = () => {
                     },
                   ],
                 },
-                outputPath: 'images',
+                outputPath: "images",
               },
             },
           ],
@@ -82,9 +84,7 @@ module.exports = () => {
                 autoprefixer: {
                   browsers: ["last 2 versions"],
                 },
-                plugins: () => [
-                  autoprefixer,
-                ],
+                plugins: () => [autoprefixer],
               },
             },
             {
@@ -115,21 +115,21 @@ module.exports = () => {
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts',
+              name: "[name].[ext]",
+              outputPath: "fonts",
             },
           },
         },
         {
           test: /\.(html)$/,
           use: {
-            loader: 'html-loader',
+            loader: "html-loader",
             options: {
               interpolate: true,
               minimize: false,
-              attrs: ['img:src', 'link:href', 'image:xlink:href']
+              attrs: ["img:src", "link:href", "image:xlink:href"],
             },
           },
         },
@@ -137,24 +137,32 @@ module.exports = () => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: 'style.css',
+        filename: "style.css",
       }),
-      new BrowserSyncPlugin({
+      new BrowserSyncPlugin(
+        {
           // browse to http://SITEURL:3000/ during development
-          host: 'localhost/portfolio',
+          host: "localhost/portfolio",
           port: 1212,
           // proxy the Webpack Dev Server endpoint (which should be serving on http://localhost:3100/) through BrowserSync
-          proxy: 'localhost/portfolio',
+          proxy: "localhost/portfolio",
+          files: [
+            {
+              match: ["**/*.html", "**/*.php", "**/*.twig", "**/*.css"],
+            },
+          ],
+          injectChanges: true,
         },
         {
           reload: true,
-          localOnly: true,
-      }),
+          injectCss: true,
+        }
+      ),
     ],
     optimization: {
       splitChunks: {
-        chunks: 'initial',
-        automaticNameDelimiter: '-',
+        chunks: "initial",
+        automaticNameDelimiter: "-",
       },
       minimizer: [
         new UglifyJsPlugin({
