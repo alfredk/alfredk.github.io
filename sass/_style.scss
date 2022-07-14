@@ -4,7 +4,7 @@
 
 :root {
   --dark: #333333;
-  --light-blue: #51c1d5;
+  --blue: #08072e;
   --secondary-dark: #363948;
 
   --slot3: #db961e;
@@ -13,34 +13,44 @@
 }
 body {
   overflow-x: hidden;
-  width: calc(99.5vw - 6px);
+  width: 100%;
   margin: 0;
   font-family: $primary_font;
   font-size: 1.5rem;
   line-height: 1.1;
-  background-image: linear-gradient(230deg,var(--light-blue) ,var(--secondary-dark) 50%);
+  background-image: linear-gradient(230deg,var(--blue) ,var(--secondary-dark) 50%);
   color: white;
-  border-image: linear-gradient(to bottom right, #ff0 0%, #65ca76 30%, #009ead 66%, #4cdae8 100%, #4cdae8);
-  border-style: solid;
-  border-image-slice: 1;
-  border-image-width: 3px;
   a { color: white; }
 
   @media (prefers-color-scheme: light) {
     color: var(--dark);
-    background-image: linear-gradient(230deg,var(--light-blue) ,white 50%);
+    background-image: linear-gradient(230deg,var(--blue) ,white 50%);
     a { color: var(--dark); }
   }
 }
 
 header {}
 
-main {}
-
-.content {
-  padding: 4.5%;
-  // margin: 0 auto;
-  width: 75%;
+.wrapper {
+  margin: 0 10%;
+}
+main {
+  .seperatorFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .centeredFlex {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
 }
 
+.content {
+  padding: 1%;
+}
+ul {
+  padding: 0 1.4rem;
+}
 footer {}

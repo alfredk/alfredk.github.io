@@ -1,5 +1,15 @@
+
+// font-family: novel-sans-pro,sans-serif;
+// font-weight: 700;
+// font-style: normal;
+// font-weight: 400;
+// font-style: normal;
+// font-weight: 400;
+// font-style: italic;
+
 // $primary_font: 'Raleway', sans-serif;
-$primary_font: 'Source Sans Pro', sans-serif;
+$primary_font: novel-sans-pro,sans-serif;
+$heading_font: edita, serif;
 
 h1,
 h2,
@@ -9,25 +19,19 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 1.2rem;
-  font-family: $primary_font;
+  font-family: $heading_font;
   color: white;
+  font-weight: 700;
   @media (prefers-color-scheme: light) {
     color: var(--dark);
   }
 }
 h1 {
   font-size: calc(min(max(3.8rem, 6vw), 5.6rem));
-  border-bottom: 3px solid var(--dark);
-  // text-decoration: underline;
-  // background-image: linear-gradient( 70deg ,var(--slot3) 35%,var(--slot4) 70%,var(--slot5));
-  // -webkit-background-clip: text;
-  // background-clip: text;
-  // -webkit-text-fill-color: transparent;
-  // overflow: hidden;
-  // -webkit-line-clamp: 7;
-  // display: -webkit-box;
-  // -webkit-box-orient: vertical;
-  // width: fit-content;
+  border-bottom: 3px solid var(white);
+  @media (prefers-color-scheme: light) {
+    border-bottom: 3px solid var(--dark);
+  }
 }
 h2{
   font-size: calc(min(max(3rem, 5vw), 4.4rem));
@@ -38,4 +42,9 @@ h3 {
 }
 h4 {
   // font-size: calc(min(max(2rem, 4vw), 2.4rem));
+}
+p {
+  font-family: $primary_font;
+  line-height: 1.4;
+  margin-bottom: 1.4rem;
 }
