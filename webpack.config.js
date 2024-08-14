@@ -1,5 +1,5 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const sass = require('sass');
 const globImporter = require("node-sass-glob-importer");
 const autoprefixer = require("autoprefixer");
 const path = require('path');
@@ -72,7 +72,6 @@ module.exports = () => {
             {
               loader: "css-loader",
               options: {
-                minimize: true,
                 importLoaders: 2,
                 sourceMap: true,
               },
@@ -80,19 +79,14 @@ module.exports = () => {
             {
               loader: "postcss-loader",
               options: {
-                sourceMap: true,
-                autoprefixer: {
-                  browsers: ["last 2 versions"],
-                },
-                plugins: () => [autoprefixer],
+                sourceMap: true
               },
             },
             {
               // Compile Sass to CSS
               loader: "sass-loader",
               options: {
-                sourceMap: true,
-                importer: globImporter(),
+                sourceMap: true
               },
             },
           ],
@@ -106,8 +100,7 @@ module.exports = () => {
               loader: "css-loader",
               options: {
                 sourceMap: true,
-                minimize: true,
-                importLoaders: 2,
+                importLoaders: 2
               },
             },
           ],
@@ -142,10 +135,10 @@ module.exports = () => {
       new BrowserSyncPlugin(
         {
           // browse to http://SITEURL:3000/ during development
-          host: "localhost/portfolio",
-          port: 1212,
+          host: "localhost//alfredk.github.io/index.html",
+          port: 80,
           // proxy the Webpack Dev Server endpoint (which should be serving on http://localhost:3100/) through BrowserSync
-          proxy: "localhost/portfolio",
+          proxy: "localhost//alfredk.github.io/index.html",
           files: [
             {
               match: ["**/*.html", "**/*.php", "**/*.twig", "**/*.css"],
@@ -158,20 +151,7 @@ module.exports = () => {
           injectCss: true,
         }
       ),
-    ],
-    optimization: {
-      splitChunks: {
-        chunks: "initial",
-        automaticNameDelimiter: "-",
-      },
-      minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            safari10: true,
-          },
-        }),
-      ],
-    },
+    ]
   };
 
   // If in development mode, add eslint

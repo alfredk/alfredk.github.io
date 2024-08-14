@@ -9,7 +9,7 @@
 
 // $primary_font: 'Raleway', sans-serif;
 $primary_font: novel-sans-pro,sans-serif;
-$heading_font: edita, serif;
+$heading_font: veranda, sans-serif;
 
 h1,
 h2,
@@ -18,20 +18,17 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
   font-family: $heading_font;
-  color: white;
-  font-weight: 700;
+  color: var(--dark);
+  font-weight: 400;
   @media (prefers-color-scheme: light) {
     color: var(--dark);
   }
 }
 h1 {
   font-size: calc(min(max(3.8rem, 6vw), 5.6rem));
-  border-bottom: 3px solid var(white);
-  @media (prefers-color-scheme: light) {
-    border-bottom: 3px solid var(--dark);
-  }
+  @media (prefers-color-scheme: light) {}
 }
 h2{
   font-size: calc(min(max(3rem, 5vw), 4.4rem));

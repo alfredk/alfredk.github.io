@@ -6,10 +6,6 @@
   --dark: #333333;
   --blue: #08072e;
   --secondary-dark: #363948;
-
-  --slot3: #db961e;
-  --slot4: #9068fb;
-  --slot5: #3800e7;
 }
 body {
   overflow-x: hidden;
@@ -18,22 +14,28 @@ body {
   font-family: $primary_font;
   font-size: 1.5rem;
   line-height: 1.1;
-  background-image: linear-gradient(230deg,var(--blue) ,var(--secondary-dark) 50%);
+  background-color: gray;
   color: white;
   a { color: white; }
 
   @media (prefers-color-scheme: light) {
     color: var(--dark);
-    background-image: linear-gradient(230deg,var(--blue) ,white 50%);
+    background-color: beige;
     a { color: var(--dark); }
   }
+}
+
+iframe[src*="youtube"] {
+  height: 100vh;
+  width: 100vw;
 }
 
 header {}
 
 .wrapper {
-  margin: 0 10%;
+  margin: 10% 10% 0;
 }
+
 main {
   .seperatorFlex {
     display: flex;
@@ -47,9 +49,8 @@ main {
   }
 }
 
-.content {
-  padding: 1%;
-}
+.content {}
+
 ul {
   padding: 0 1.4rem;
 }
