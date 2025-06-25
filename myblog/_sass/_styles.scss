@@ -1,6 +1,5 @@
-
-@import "normalize";
-@import "type";
+// @import "normalize";
+// @import "type";
 
 :root {
   --dark: #333333;
@@ -16,12 +15,12 @@ body {
   line-height: 1.1;
   background-color: gray;
   color: white;
-  a { color: white; }
+  a { color: beige; }
 
   @media (prefers-color-scheme: light) {
     color: var(--dark);
     background-color: beige;
-    a { color: var(--dark); }
+    a { color: darkolivegreen; }
   }
 }
 

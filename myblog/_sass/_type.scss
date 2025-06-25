@@ -8,8 +8,8 @@
 // font-style: italic;
 
 // $primary_font: 'Raleway', sans-serif;
-$primary_font: novel-sans-pro,sans-serif;
-$heading_font: veranda, sans-serif;
+$primary_font: novel-sans-pro,system-ui,sans-serif;
+$heading_font: veranda, system-ui,sans-serif;
 
 h1,
 h2,
@@ -26,10 +26,23 @@ h6 {
     color: var(--dark);
   }
 }
+.header-styles {
+  font-size: clamp(2.75rem,10vw,5.5rem);
+  line-height: .9;
+  font-weight: 800;
+  -webkit-text-stroke: 3px firebrick;
+  paint-order: stroke fill;
+  color: #fff;
+  letter-spacing: -0.01em;
+  text-shadow: 1px 1px 0 firebrick, 2px 2px 0 firebrick, 3px 3px 0 firebrick, 4px 4px 0 firebrick;
+  font-weight: 900;
+  font-style: normal;
+}
 h1 {
   font-size: calc(min(max(3.8rem, 6vw), 5.6rem));
   @media (prefers-color-scheme: light) {}
 }
+h2.header-styles { font-size: calc(min(max(3rem, 5vw), 4.4rem)); }
 h2{
   font-size: calc(min(max(3rem, 5vw), 4.4rem));
 }
